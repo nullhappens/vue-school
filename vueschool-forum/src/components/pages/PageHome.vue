@@ -7,12 +7,11 @@
 
 <script>
 import sourceData from '@/data.json';
-import ThreadList from './ThreadList';
+import ThreadList from '@/components/ThreadList';
 
 // FIXME: Delete this
 window.console.log(sourceData);
 export default {
-  name: 'HelloWorld',
   components: {
     ThreadList,
   },
