@@ -6,23 +6,23 @@
 </template>
 
 <script>
-import sourceData from '@/data.json';
-import ThreadList from '@/components/ThreadList';
+  import sourceData from '@/data.json';
+  import ThreadList from '@/components/ThreadList';
 
-// FIXME: Delete this
-window.console.log(sourceData);
-export default {
-  components: {
-    ThreadList,
-  },
-  data() {
-    return {
-      threads: Object.values(sourceData.threads),
-      posts: sourceData.posts,
-      users: sourceData.users,
-    };
-  },
-};
+  // FIXME: Delete this
+  window.console.log(sourceData);
+  export default {
+    components: {
+      ThreadList,
+    },
+    data() {
+      return {
+        threads: Object.values(sourceData.threads),
+        posts: sourceData.posts,
+        users: sourceData.users,
+      };
+    },
+  };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
