@@ -2,6 +2,9 @@
 <div>
   <div class="col-large push-top">
     <h1>{{thread.title}}</h1>
+    <p>
+      By <a href="#" class="link-unstyled">[AUTHOR]</a>, <AppDate :timestamp="thread.publishedAt" />
+    </p>
     <PostList :posts="posts"/>
     <PostEditor
       @save="addPost"
