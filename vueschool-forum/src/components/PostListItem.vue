@@ -1,35 +1,44 @@
 <template>
   <div class="post">
+    <div class="user-info">
+      <a href="#">{{user.name}}</a>
+      <a href="#">
+        <img :src="user.avatar" alt="" class="avatar-large">
+      </a>
+      <p class="desktop-only text-small">{{userPostsCount}} posts</p>
+    </div>
+
     <div class="post-content">
-      <div class="user-info">
-        <a href="#">{{user.name}}</a>
-        <a href="#">
-          <img :src="user.avatar" alt="" class="avatar-large">
-        </a>
-        <p class="desktop-only text-small">{{userPostsCount}} posts</p>
+      <div>
+        {{post.text}}
       </div>
+    </div>
 
-      <div class="post-content">
-        <div>
-          {{post.text}}
-        </div>
-      </div>
-
-      <div class="post-date text-faded">
-        {{post.publishedAt}}
-      </div>
+    <div
+      class="post-date text-faded"
+      :title="post.publishedAt | humanFriendlyDate">
+      {{post.publishedAt | diffForHumans}}
     </div>
   </div>
 </template>
 
 <script>
   import sourceData from '@/data.json';
+  import moment from 'moment';
 
   export default {
     props: {
       post: {
         required: true,
         type: Object,
+      },
+    },
+    filters: {
+      humanFriendlyDate(date) {
+        return moment.unix(date).format('MMMM Do YYYY, hh:mm:ss a');
+      },
+      diffForHumans(date) {
+        return moment.unix(date).fromNow();
       },
     },
     computed: {
